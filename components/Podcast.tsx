@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+// @ts-expect-error
 const Podcast = ({ podcastData }) => {
-  console.log("Podcasts =", podcastData);
 
   if (!podcastData) return <p>Loading...</p>;
 

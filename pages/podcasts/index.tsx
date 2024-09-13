@@ -2,6 +2,7 @@ import Podcast from "@/components/Podcast";
 import { getAllPodcasts } from "@/lib/contentful";
 import React from "react";
 
+// @ts-expect-error
 const PodcastsPage = ({ podcasts }) => {
 
   return (
@@ -22,7 +23,7 @@ const PodcastsPage = ({ podcasts }) => {
           world is hard. This podcast will help.
         </p>
       </div>
-      <div className="mt-12 pr-96">
+      <div className="mt-12 w-10/12">
         <h3 className="text-3xl font-bold mb-4">All Episodes</h3>
         <div>
           {podcasts.items.map((podcast: any) => (

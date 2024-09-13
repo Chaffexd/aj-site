@@ -17,3 +17,12 @@ export async function getAllPodcasts() {
 
   return podcasts;
 }
+
+export async function getSinglePodcast(podcastId: string) {
+  const podcast = await client.getEntries({
+    content_type: "podcastPage",
+    "fields.slug[match]": podcastId,
+  });
+  
+  return podcast;
+}
