@@ -1,3 +1,4 @@
+import LandingInto from "@/components/LandingInto";
 import localFont from "next/font/local";
 
 const geistSans = localFont({
@@ -13,6 +14,8 @@ const geistMono = localFont({
 
 export default function Home() {
   return (
-   <>Hello</>
+    <section className="w-full flex gap-12">
+      <LandingInto />
+    </section>
   );
 }
