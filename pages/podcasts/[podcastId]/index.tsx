@@ -7,13 +7,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Head from "next/head";
+import ShareIcon from "@/components/Icons/ShareIcon";
 
 // @ts-expect-error
 const PodcastDetailPage = ({ podcast }) => {
-  console.log(
-    "Podcast data =",
-    podcast.items[0].fields.podcastFile?.fields?.file?.url
-  );
 
   const {
     episodeTitle,
@@ -26,7 +23,7 @@ const PodcastDetailPage = ({ podcast }) => {
   } = podcast?.items[0]?.fields;
 
   return (
-    <section>
+    <section className="w-8/12 max-w-4xl m-auto bg-sky-900 p-8 rounded-md">
       <Head>
         <title>{`${episodeTitle} - Episode #${episodeNumber} | Sunday Dinner`}</title>
         <meta
@@ -80,12 +77,13 @@ const PodcastDetailPage = ({ podcast }) => {
         <audio controls className="w-full mb-6">
           <source src={`https:${podcastFile?.fields?.file?.url}`} />
         </audio>
-        <div>
+        <div className="flex items-center">
           {genres.map((genre: string) => (
             <span className="mr-2 bg-sky-700 p-2 rounded-full text-sm font-bold ">
               {genre}
             </span>
           ))}
+          <ShareIcon />
         </div>
       </div>
       <div>

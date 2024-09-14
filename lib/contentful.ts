@@ -26,3 +26,20 @@ export async function getSinglePodcast(podcastId: string) {
   
   return podcast;
 }
+
+export async function getAllBlogPosts() {
+  const blogPosts = await client.getEntries({
+    content_type: "blogPost",
+  });
+
+  return blogPosts;
+}
+
+export async function getSingleBlogPost(blogPostId: string) {
+  const blogPosts = await client.getEntries({
+    content_type: "blogPost",
+    "fields.slug[match]": blogPostId
+  });
+
+  return blogPosts;
+}
