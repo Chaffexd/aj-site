@@ -1,5 +1,6 @@
 import Blogs from "@/components/Blogs";
 import { getAllBlogPosts } from "@/lib/contentful";
+import Head from "next/head";
 import React from "react";
 
 // @ts-expect-error
@@ -9,6 +10,21 @@ const BlogPage = ({ blogPosts }) => {
 
   return (
     <section className="w-8/12 max-w-4xl m-auto mb-20">
+      <Head>
+      <title>{`Blog | Member of the Black Empire`}</title>
+        <meta
+          name="description"
+          content={`An entry to my blog about being a member of the Black Empire.`}
+        />
+        <meta
+          property="og:title"
+          content={`Blog | Member of the Black Empire`}
+        />
+        <meta
+          property="og:description"
+          content={`A blog about being a member of the Black Empire.`}
+        />
+      </Head>
       <div>
         <h1 className="font-bold italic text-6xl underline text-amber-400 mb-12">
           Members of the Black Empire

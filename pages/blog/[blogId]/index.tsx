@@ -7,6 +7,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import ShareIcon from "@/components/Icons/ShareIcon";
 import Link from "next/link";
 import LeftArrow from "@/components/Icons/LeftArrow";
+import Head from "next/head";
 
 // @ts-expect-error
 const BlogDetailPage = ({ blog }) => {
@@ -17,6 +18,32 @@ const BlogDetailPage = ({ blog }) => {
 
   return (
     <section className="max-w-4xl m-auto">
+      <Head>
+        <title>{`${title} | Member of the Black Empire`}</title>
+        <meta
+          name="description"
+          content={`An entry to my blog about being a member of the Black Empire.`}
+        />
+        <meta
+          property="og:title"
+          content={`${title} | Member of the Black Empire`}
+        />
+        <meta
+          property="og:description"
+          content={`An entry to my blog about being a member of the Black Empire.`}
+        />
+        <meta
+          property="og:image"
+          content={`https:${coverImage?.fields?.file?.url}`}
+        />
+        <meta
+          property="og:url"
+          content={typeof window !== "undefined" ? window.location.href : ""}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:type" content="article" />
+        <meta name="keywords" content={genres?.join(", ")} />
+      </Head>
       <Link href={"/blog"} className="w-[25px] block mb-4">
         <LeftArrow />
       </Link>

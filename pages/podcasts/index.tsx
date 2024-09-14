@@ -1,16 +1,33 @@
 import Podcast from "@/components/Podcast";
 import { getAllPodcasts } from "@/lib/contentful";
+import Head from "next/head";
 import React from "react";
 
 // @ts-expect-error
 const PodcastsPage = ({ podcasts }) => {
-
   return (
     <section className="w-8/12 max-w-4xl m-auto ">
+      <Head>
+        <title>{`Podcasts | Sunday Dinner`}</title>
+        <meta
+          name="description"
+          content={`The Sunday Dinner podcast.`}
+        />
+        <meta
+          property="og:title"
+          content={`Podcast | The Sunday Dinner podcast`}
+        />
+        <meta
+          property="og:description"
+          content={`A podcast about being black, discussed over Sunday Dinner.`}
+        />
+      </Head>
       <div>
         <h1 className="text-4xl mb-12">
-          Welcome to the{" "} <br/>
-          <span className="font-bold italic text-6xl underline text-amber-400">Sunday Dinner Podcast</span>
+          Welcome to the <br />
+          <span className="font-bold italic text-6xl underline text-amber-400">
+            Sunday Dinner Podcast
+          </span>
         </h1>
         <h2 className="text-3xl mb-2 font-bold">About</h2>
         <p className="text-lg">
@@ -27,7 +44,7 @@ const PodcastsPage = ({ podcasts }) => {
         <h3 className="text-3xl font-bold mb-4">All Episodes</h3>
         <div>
           {podcasts.items.map((podcast: any) => (
-            <Podcast podcastData={podcast} key={podcast.sys.id}/>
+            <Podcast podcastData={podcast} key={podcast.sys.id} />
           ))}
         </div>
       </div>
