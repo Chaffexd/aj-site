@@ -70,7 +70,7 @@ const BlogDetailPage = ({ blog }) => {
         </div>
       </div>
       <div className="flex items-center mb-10">
-        {genres.map((genre: string, index: number) => (
+        {genres && genres.map((genre: string, index: number) => (
           <span
             className="mr-2 bg-sky-700 p-2 rounded-full text-sm font-bold"
             key={index}
