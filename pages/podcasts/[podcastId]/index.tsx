@@ -9,7 +9,7 @@ import React from "react";
 import Head from "next/head";
 import ShareIcon from "@/components/Icons/ShareIcon";
 
-// @ts-expect-error
+// @ts-expect-error ignore the type at the top
 const PodcastDetailPage = ({ podcast }) => {
 
   const {
@@ -78,8 +78,8 @@ const PodcastDetailPage = ({ podcast }) => {
           <source src={`https:${podcastFile?.fields?.file?.url}`} />
         </audio>
         <div className="flex items-center">
-          {genres.map((genre: string) => (
-            <span className="mr-2 bg-sky-700 p-2 rounded-full text-sm font-bold ">
+          {genres.map((genre: string, index: number) => (
+            <span className="mr-2 bg-sky-700 p-2 rounded-full text-sm font-bold" key={index}>
               {genre}
             </span>
           ))}
