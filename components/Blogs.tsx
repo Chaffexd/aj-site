@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-// @ts-expect-error
+// @ts-expect-error ignore the type at the top
 const Blogs = ({ blogPosts }) => {
 
   const { slug, coverImage, dateOfEntry, title, genres } = blogPosts?.fields;

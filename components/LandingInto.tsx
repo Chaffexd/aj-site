@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import { Button } from "./ui/button";
 import Link from "next/link";
 import Instagram from "./Icons/Instagram";
 import Twitter from "./Icons/Twitter";

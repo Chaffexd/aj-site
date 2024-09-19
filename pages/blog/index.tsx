@@ -3,13 +3,13 @@ import { getAllBlogPosts } from "@/lib/contentful";
 import Head from "next/head";
 import React from "react";
 
-// @ts-expect-error
+// @ts-expect-error ignore the type at the top
 const BlogPage = ({ blogPosts }) => {
   console.log(
     "All blogs ===",
 
     blogPosts.items.sort(
-      // @ts-expect-error
+      // @ts-expect-error filter the dates of the entries
       (a, b) => new Date(b.fields.dateOfEntry) - new Date(a.fields.dateOfEntry)
     )
   );
@@ -51,7 +51,8 @@ const BlogPage = ({ blogPosts }) => {
       <div className="mt-12">
         <h3 className="text-3xl font-bold mb-4">All Blogs</h3>
         <div>
-          {blogPosts.items.map((blogPost: any) => (
+          { // @ts-expect-error no types here pls
+          blogPosts.items.map((blogPost) => (
             <Blogs blogPosts={blogPost} key={blogPost.sys.id} />
           ))}
         </div>

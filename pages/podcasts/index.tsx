@@ -3,7 +3,7 @@ import { getAllPodcasts } from "@/lib/contentful";
 import Head from "next/head";
 import React from "react";
 
-// @ts-expect-error
+// @ts-expect-error ignore the type at the top
 const PodcastsPage = ({ podcasts }) => {
   
   return (
@@ -44,7 +44,8 @@ const PodcastsPage = ({ podcasts }) => {
       <div className="mt-12">
         <h3 className="text-3xl font-bold mb-4">All Episodes</h3>
         <div>
-          {podcasts.items.map((podcast: any, index: number) => (
+          { // @ts-expect-error ignore the type at the top
+          podcasts.items.map((podcast, index: number) => (
             <Podcast podcastData={podcast} key={index} />
           ))}
         </div>

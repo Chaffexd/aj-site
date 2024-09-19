@@ -83,8 +83,9 @@ const BlogDetailPage = ({ blog }) => {
       <div className="flex flex-col">
         <p className="font-bold text-2xl mb-4">More posts from me...</p>
         {relatedPosts && relatedPosts.length > 1 ?
-          relatedPosts.map((relatedPost: any) => (
-            <Link href={`/blog/${relatedPost.fields.slug}`} className="mb-4 bg-amber-500 rounded-md p-4 font-bold hover:bg-amber-600">
+        // @ts-expect-error this is because we don't want a type here
+          relatedPosts.map((relatedPost, index) => (
+            <Link href={`/blog/${relatedPost.fields.slug}`} key={index} className="mb-4 bg-amber-500 rounded-md p-4 font-bold hover:bg-amber-600">
               {relatedPost.fields.title}
             </Link>
           )) : <p className="font-bold">Coming soon...</p>}

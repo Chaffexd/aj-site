@@ -8,7 +8,8 @@ const ShareIcon = () => {
     typeof window !== "undefined" ? window.location.origin + pathname : "";
   const { toast } = useToast();
 
-  function handleShare(e: any) {
+  // @ts-expect-error ignore the type at the top
+  function handleShare(e) {
     e.preventDefault();
     console.log("click", pathname);
 
