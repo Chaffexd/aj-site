@@ -7,7 +7,7 @@ import React from "react";
 const PodcastsPage = ({ podcasts }) => {
   
   return (
-    <section className="w-8/12 max-w-4xl m-auto mb-20">
+    <section className="px-4 sm:w-8/12 max-w-4xl m-auto mb-20">
       <Head>
         <title>{`Podcasts | Sunday Dinner`}</title>
         <meta

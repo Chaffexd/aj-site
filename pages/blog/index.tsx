@@ -17,7 +17,7 @@ const BlogPage = ({ blogPosts }) => {
   if (!blogPosts) return <h1>Loading...</h1>;
 
   return (
-    <section className="w-8/12 max-w-4xl m-auto mb-20">
+    <section className="px-4 sm:w-8/12 max-w-4xl m-auto mb-20">
       <Head>
         <title>{`Blog | Member of the Black Empire`}</title>
         <meta

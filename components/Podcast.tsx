@@ -31,11 +31,11 @@ const Podcast = ({ podcastData }) => {
         <h1 className="font-bold text-2xl mb-4">
           {episodeTitle} - #{episodeNumber}
         </h1>
-        <p>
+        <div className="">
           {genres.map((genre: string, index: number) => (
-            <span className="mr-2 bg-sky-700 p-2 rounded-full text-sm font-bold" key={index}>{genre}</span>
+            <span className="mr-2 mb-2 bg-sky-700 p-2 rounded-full text-sm font-bold" key={index}>{genre}</span>
           ))}
-        </p>
+        </div>
       </div>
     </Link>
   );
