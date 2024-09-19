@@ -23,7 +23,7 @@ const PodcastDetailPage = ({ podcast }) => {
   } = podcast?.items[0]?.fields;
 
   return (
-    <section className="lg:w-8/12 w-full max-w-4xl m-auto bg-sky-900 p-8 rounded-md">
+    <section className="lg:w-8/12 w-full max-w-4xl m-auto bg-sky-900 p-8 rounded-md mb-20">
       <Head>
         <title>{`${episodeTitle} - Episode #${episodeNumber} | Sunday Dinner`}</title>
         <meta
