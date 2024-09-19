@@ -23,7 +23,7 @@ const PodcastDetailPage = ({ podcast }) => {
   } = podcast?.items[0]?.fields;
 
   return (
-    <section className="w-8/12 max-w-4xl m-auto bg-sky-900 p-8 rounded-md">
+    <section className="lg:w-8/12 w-full max-w-4xl m-auto bg-sky-900 p-8 rounded-md">
       <Head>
         <title>{`${episodeTitle} - Episode #${episodeNumber} | Sunday Dinner`}</title>
         <meta
@@ -57,7 +57,7 @@ const PodcastDetailPage = ({ podcast }) => {
       <Link href={"/podcasts"} className="w-[25px] block">
         <LeftArrow />
       </Link>
-      <div className="mt-6 flex">
+      <div className="mt-6 flex flex-col sm:flex-row">
         <Image
           src={`https:${podcastPlaceholderImage?.fields?.file?.url}`}
           alt="Photo of AJ"

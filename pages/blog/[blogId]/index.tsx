@@ -9,15 +9,21 @@ import Link from "next/link";
 import LeftArrow from "@/components/Icons/LeftArrow";
 import Head from "next/head";
 
-// @ts-expect-error
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 const BlogDetailPage = ({ blog }) => {
-  console.log("Single blog post =", blog);
 
-  const { content, coverImage, dateOfEntry, genres, slug, title } =
-    blog?.items[0]?.fields;
+  const {
+    content,
+    coverImage,
+    dateOfEntry,
+    genres,
+    title,
+    relatedPosts,
+  } = blog?.items[0]?.fields;
 
   return (
-    <section className="max-w-4xl m-auto">
+    <section className="max-w-4xl m-auto mb-20">
       <Head>
         <title>{`${title} | Member of the Black Empire`}</title>
         <meta
@@ -49,29 +55,40 @@ const BlogDetailPage = ({ blog }) => {
       </Link>
       <div className="w-full">
         <time className="mb-2 font-bold block">{formatDate(dateOfEntry)}</time>
-        <Image
+        {coverImage && <Image
           src={`https:${coverImage?.fields?.file?.url}`}
           alt="Cover image for blog"
           height={300}
           width={400}
           className="bg-fit bg-center w-full h-[400px]"
-        />
+        />}
         <h1 className="text-center font-bold text-4xl mt-4 mb-10 text-amber-500">
           {title}
         </h1>
         <div className="mb-8">
-          {content &&
-            documentToReactComponents(content, richTextOptions)}
+          {content && documentToReactComponents(content, richTextOptions)}
         </div>
       </div>
       <div className="flex items-center mb-10">
-          {genres.map((genre: string) => (
-            <span className="mr-2 bg-sky-700 p-2 rounded-full text-sm font-bold ">
-              {genre}
-            </span>
-          ))}
-          <ShareIcon />
-        </div>
+        {genres.map((genre: string, index: number) => (
+          <span
+            className="mr-2 bg-sky-700 p-2 rounded-full text-sm font-bold"
+            key={index}
+          >
+            {genre}
+          </span>
+        ))}
+        <ShareIcon />
+      </div>
+      <div className="flex flex-col">
+        <p className="font-bold text-2xl mb-4">More posts from me...</p>
+        {relatedPosts && relatedPosts.length > 1 ?
+          relatedPosts.map((relatedPost: any) => (
+            <Link href={`/blog/${relatedPost.fields.slug}`} className="mb-4 bg-amber-500 rounded-md p-4 font-bold hover:bg-amber-600">
+              {relatedPost.fields.title}
+            </Link>
+          )) : <p className="font-bold">Coming soon...</p>}
+      </div>
     </section>
   );
 };

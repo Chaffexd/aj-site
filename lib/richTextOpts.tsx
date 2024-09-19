@@ -5,7 +5,7 @@ import Link from "next/link";
 export const richTextOptions = {
   renderNode: {
     [BLOCKS.HEADING_1]: (node: any, children: any) => {
-      return <h1 className="font-bold text-5xl my-4 dark:text-white">{children}</h1>;
+      return <h1 className="font-bold text-4xl my-4 dark:text-white">{children}</h1>;
     },
     [BLOCKS.HEADING_2]: (node: any, children: any) => {
       return <h2 className="font-bold text-2xl my-4 dark:text-white">{children}</h2>;
@@ -32,7 +32,7 @@ export const richTextOptions = {
       return <ol className="my-4 dark:text-slate-200 list-inside">{children}</ol>;
     },
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => {
-      return <p className="mb-2 text-slate-700 dark:text-slate-200 inline">{children}</p>;
+      return <p className="mb-2 text-slate-700 text-lg dark:text-slate-200 inline">{children}</p>;
     },
     [BLOCKS.TABLE]: (node: any, children: any) => {
       return (

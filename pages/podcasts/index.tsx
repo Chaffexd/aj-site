@@ -5,8 +5,9 @@ import React from "react";
 
 // @ts-expect-error
 const PodcastsPage = ({ podcasts }) => {
+  
   return (
-    <section className="w-8/12 max-w-4xl m-auto ">
+    <section className="w-8/12 max-w-4xl m-auto mb-20">
       <Head>
         <title>{`Podcasts | Sunday Dinner`}</title>
         <meta
@@ -43,8 +44,8 @@ const PodcastsPage = ({ podcasts }) => {
       <div className="mt-12">
         <h3 className="text-3xl font-bold mb-4">All Episodes</h3>
         <div>
-          {podcasts.items.map((podcast: any) => (
-            <Podcast podcastData={podcast} key={podcast.sys.id} />
+          {podcasts.items.map((podcast: any, index: number) => (
+            <Podcast podcastData={podcast} key={index} />
           ))}
         </div>
       </div>

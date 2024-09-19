@@ -5,13 +5,21 @@ import React from "react";
 
 // @ts-expect-error
 const BlogPage = ({ blogPosts }) => {
+  console.log(
+    "All blogs ===",
 
-  if (!blogPosts) return <h1>Loading...</h1>
+    blogPosts.items.sort(
+      // @ts-expect-error
+      (a, b) => new Date(b.fields.dateOfEntry) - new Date(a.fields.dateOfEntry)
+    )
+  );
+
+  if (!blogPosts) return <h1>Loading...</h1>;
 
   return (
     <section className="w-8/12 max-w-4xl m-auto mb-20">
       <Head>
-      <title>{`Blog | Member of the Black Empire`}</title>
+        <title>{`Blog | Member of the Black Empire`}</title>
         <meta
           name="description"
           content={`An entry to my blog about being a member of the Black Empire.`}
@@ -44,7 +52,7 @@ const BlogPage = ({ blogPosts }) => {
         <h3 className="text-3xl font-bold mb-4">All Blogs</h3>
         <div>
           {blogPosts.items.map((blogPost: any) => (
-            <Blogs blogPosts={blogPost} key={blogPost.sys.id}/>
+            <Blogs blogPosts={blogPost} key={blogPost.sys.id} />
           ))}
         </div>
       </div>

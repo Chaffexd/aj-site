@@ -6,7 +6,7 @@ const Layout: FC<PropsWithChildren<{}>> = ({ children }) => {
   return (
     <>
       <Navbar />
-      <main className="px-40">{children}</main>
+      <main className="lg:px-40">{children}</main>
       <Toaster />
     </>
   );

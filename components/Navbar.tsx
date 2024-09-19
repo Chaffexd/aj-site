@@ -14,10 +14,10 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between p-16 px-40">
-      <div>
+    <nav className="flex justify-between p-16 sm:px-40 max-w-7xl m-auto">
+      <Link href={"/"}>
         <h1>AJ Site - Title/Logo</h1>
-      </div>
+      </Link>
       <div>
         <Drawer direction="bottom">
           <DrawerTrigger>

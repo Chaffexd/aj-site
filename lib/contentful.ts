@@ -23,7 +23,7 @@ export async function getSinglePodcast(podcastId: string) {
     content_type: "podcastPage",
     "fields.slug[match]": podcastId,
   });
-  
+
   return podcast;
 }
 
@@ -38,8 +38,17 @@ export async function getAllBlogPosts() {
 export async function getSingleBlogPost(blogPostId: string) {
   const blogPosts = await client.getEntries({
     content_type: "blogPost",
-    "fields.slug[match]": blogPostId
+    "fields.slug[match]": blogPostId,
   });
 
   return blogPosts;
+}
+
+export async function getAboutPage(slug: string) {
+  const aboutPage = await client.getEntries({
+    content_type: "page",
+    "fields.slug[match]": slug,
+  });
+
+  return aboutPage;
 }

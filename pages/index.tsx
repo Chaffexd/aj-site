@@ -1,21 +1,22 @@
 import LandingInto from "@/components/LandingInto";
-import localFont from "next/font/local";
+import { getAboutPage } from "@/lib/contentful";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-export default function Home() {
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+export default function Home({ homePage }) {
   return (
-    <section className="w-full flex gap-12">
-      <LandingInto />
+    <section className="w-full max-w-5xl m-auto sm:flex flex-col md:flex-row gap-12 justify-center items-center">
+      <LandingInto homePage={homePage} />
     </section>
   );
+}
+
+export async function getStaticProps() {
+  const homePage = await getAboutPage("/home");
+
+  return {
+    props: {
+      homePage,
+    },
+  };
 }
